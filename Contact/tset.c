@@ -1,12 +1,12 @@
 #include"contact.h"
 void menu()
 {
-    printf("****************************\n");
-    printf("****  1.add     2.del    ***\n");
-    printf("****  3.serch   4.modify  **\n");
-    printf("****  5.show    6.sort   ***\n");
-    printf("****  0.exit    ************\n");
-    printf("****************************\n");
+    printf("*********************************************\n");
+    printf("***       1.Add                 2.Delete  ***\n");
+    printf("***       3.Search              4.Modify  ***\n");
+    printf("***       5.Show                6.Sort    ***\n");
+    printf("***       0.Exit                          ***\n");
+    printf("*********************************************\n");
 }
 int main()
 {
@@ -29,15 +29,15 @@ int main()
             DelContact(&con);
             break;
         case SEARCH:
-            //SearchContact(&con);
+            SearchContact(&con);
             break;
         case MODIFY:
-           // ModifyContact(&con);
+            ModifyContact(&con);
         case SHOW:
-            //ShowContact(&con);
+            ShowContact(&con);
             break;
         case SORT:
-            //SortContact(&con);
+            SortContact(&con);
             break;
         case EXIT:
             printf("�˳�ͨѶ¼\n");

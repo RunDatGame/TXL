@@ -31,7 +31,7 @@ void AddContact(struct Contact* ps)
 
 	}
 }
-int Find(struct Contact* ps, char name[MAX_NAME])
+static int Find(struct Contact* ps, char name[MAX_NAME])
 {
 	for (int i = 0; i < ps->size; i++)
 	{
@@ -45,7 +45,7 @@ int Find(struct Contact* ps, char name[MAX_NAME])
 	void DelContact(struct Contact* ps)
 {
 	char name[MAX_NAME];
-	printf("请输入要删除联系人的名字！\n");
+	printf("请输入要删除联系人的名字:\n");
 	scanf("%s", name);
 	int pos = Find(ps, name);
 	if (pos == -1)
@@ -62,3 +62,88 @@ int Find(struct Contact* ps, char name[MAX_NAME])
 		printf("删除成功，你再也联系不到他了！\n");
 	}
 }
+
+	void SearchContact(struct Contact* ps)
+	{
+		char name[MAX_NAME];
+		printf("请输入你要查找联系人的名字：\n");
+		scanf("%s", name);
+		int pos = Find(ps, name);
+		if (pos == -1)
+		{
+			printf("没有你要删的这个人哦！\n");
+		}
+		else
+		{
+			printf("%-8s\t%-8s\t%-8s\t%-12s\t%-20s\n", "姓名", "年龄", "性别", "电话", "地址");
+			printf("%-8s\t%-8d\t%-8s\t%-12s\t%-20s\n", ps->data[pos].name
+				, ps->data[pos].age
+				, ps->data[pos].sex
+				, ps->data[pos].tele
+				, ps->data[pos].addr);
+		}
+	}
+
+	void ModifyContact(struct Contact* ps)
+	{
+		char name[MAX_NAME];
+		printf("请输入你要更改联系人的名字：");
+		scanf("%s",name);
+		int pos = Find(ps,name);
+		if (pos == -1)
+			printf("没有你要找的这个人哦！\n");
+		else
+		{
+			printf("请输入名字:>");
+			scanf("%s",ps->data[pos].name);
+			printf("请输入年龄:>");
+			scanf("%d",&(ps->data[pos].age));
+			printf("请输入性别:>");
+			scanf("%s",ps->data[pos].sex);
+			printf("请输入电话:>");
+			scanf("%s",ps->data[pos].tele);
+			printf("请输入地址:>");
+			scanf("%s",ps->data[pos].addr);
+
+		}
+	}
+
+	void ShowContact(struct Contact* ps)
+	{
+		printf("%-8s\t%-8s\t%-8s\t%-12s\t%-20s\n", "姓名", "年龄", "性别", "电话", "地址");
+		for (int i = 0; i < ps->size; i++)
+		{
+			printf("%-8s\t%-8d\t%-8s\t%-12s\t%-20s\n", ps->data[i].name,
+				ps->data[i].age,
+				ps->data[i].sex,
+				ps->data[i].tele,
+				ps->data[i].addr);
+		}
+	}
+
+	void SortContact(struct Contact* ps)
+	{
+		if (ps->size == 0)
+		{
+			printf("通讯录为空！");
+		}
+		else
+		{
+			int i, j;
+			for (i = 0; i < ps->size; i++)
+			{
+				for (j = 0; j < ps->size - i; j++);
+				{
+					if(strcmp(ps->data[j].name,ps->data[j+1].name)>0)
+					{ 
+						printf("1");
+						struct PeoInfo str = ps->data[j];
+						ps->data[j] = ps->data[j + 1];
+						ps->data[j + 1] = str;
+					}
+				}
+			}
+			printf("恭喜你，排序完成！");
+		}
+	}
+	
