@@ -63,7 +63,7 @@ static int Find(struct Contact* ps, char name[MAX_NAME])
 	}
 }
 
-	void SearchContact(struct Contact* ps)
+	void SearchContact(const struct Contact* ps)
 	{
 		char name[MAX_NAME];
 		printf("请输入你要查找联系人的名字：\n");
@@ -108,7 +108,7 @@ static int Find(struct Contact* ps, char name[MAX_NAME])
 		}
 	}
 
-	void ShowContact(struct Contact* ps)
+	void ShowContact(const struct Contact* ps)
 	{
 		printf("%-8s\t%-8s\t%-8s\t%-12s\t%-20s\n", "姓名", "年龄", "性别", "电话", "地址");
 		for (int i = 0; i < ps->size; i++)
@@ -125,7 +125,7 @@ static int Find(struct Contact* ps, char name[MAX_NAME])
 	{
 		if (ps->size == 0)
 		{
-			printf("通讯录为空！");
+			printf("通讯录为空\n");
 		}
 		else
 		{
@@ -143,7 +143,7 @@ static int Find(struct Contact* ps, char name[MAX_NAME])
 					}
 				}
 			}
-			printf("恭喜你，排序完成！");
+			printf("恭喜你，排序完成！\n");
 		}
 	}
 	

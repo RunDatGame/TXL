@@ -40,7 +40,7 @@ struct Contact
 void InitContact(struct Contact* ps);
 void AddContact(struct Contact* ps);
 void DelContact(struct Contact* ps);
-void SearchContact(struct Contact* ps);
+void SearchContact(const struct Contact* ps);
 void ModifyContact(struct Contact* ps);
-void ShowContact(struct Contact* ps);
+void ShowContact(const struct Contact* ps);
 void SortContact(struct Contact* ps);
